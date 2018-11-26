@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.InvoicesController">
+   <center>
+      <BorderPane prefHeight="400.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+         <center>
+            <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+              <columns>
+                <TableColumn editable="false" prefWidth="100.0" text="Item ID" />
+                <TableColumn editable="false" prefWidth="100.0" text="Order ID" />
+                  <TableColumn editable="false" prefWidth="100.0" text="Product ID" />
+                  <TableColumn editable="false" prefWidth="100.0" text="Item Price" />
+                  <TableColumn editable="false" prefWidth="100.0" text="# Of Item" />
+              </columns>
+            </TableView>
+         </center>
+         <left>
+            <GridPane BorderPane.alignment="CENTER">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Button fx:id="selectOrder" mnemonicParsing="false" onAction="#openSelectOrder" text="Select Order" wrapText="true" />
+                  <Button mnemonicParsing="false" onAction="#openSelectCat" text="Select Catogories" wrapText="true" GridPane.columnIndex="1" />
+                  <Button mnemonicParsing="false" onAction="#openSelectProd" text="Select Product" wrapText="true" GridPane.rowIndex="1" />
+                  <Button mnemonicParsing="false" onAction="#openSelectCust" text="Select Customer" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+               </children>
+               <padding>
+                  <Insets left="5.0" right="5.0" />
+               </padding>
+            </GridPane>
+         </left>
+         <top>
+            <MenuBar BorderPane.alignment="CENTER">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Close" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Delete" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </top>
+      </BorderPane>
+   </center>
+</BorderPane>
