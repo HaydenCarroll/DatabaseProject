@@ -1,6 +1,7 @@
 package application;
 
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class AddOrderController {
 	public TextField custID;
@@ -13,6 +14,16 @@ public class AddOrderController {
 	public TextField cardExpires;
 	public TextField billingAddressID;
 	public TextField shipDate;
-	public TextField orderID;
+	
+	public void enter() {
+		Data.addOrders(custID.getText(), orderDate.getText(), shipAmnt.getText(), taxAmnt.getText(), shipDate.getText(),
+				shipAddressID.getText(), cardType.getText(), cardNum.getText(), cardExpires.getText(), billingAddressID.getText());
+		exit();
+	}
+	
+	public void exit() {
+		Stage s = (Stage) cardNum.getScene().getWindow();
+		s.close();
+	}
 
 }
