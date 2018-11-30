@@ -1,5 +1,7 @@
 package application;
 	
+import javax.swing.JOptionPane;
+
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
@@ -8,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 
 
 public class Main extends Application {
+	static String port;
 	@Override
 	public void start(Stage primaryStage) {
 		try {
@@ -22,7 +25,14 @@ public class Main extends Application {
 	}
 	
 	public static void main(String[] args) {
+		String s = JOptionPane.showInputDialog("Enter port that server is running on");
+		System.out.println(s);
+		port=s;
 		Data.connect();
 		launch(args);
+	}
+	
+	public static String getPort(){
+		return port;
 	}
 }

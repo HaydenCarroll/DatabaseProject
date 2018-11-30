@@ -5,11 +5,12 @@ import java.util.ArrayList;
 
 import javafx.collections.ObservableList;
 public class Data {
-	static String connectionUrl = "jdbc:sqlserver://127.0.0.1:1434;databaseName=ToolShop;integratedSecurity=true";
+
+	static String connectionUrl = "jdbc:sqlserver://127.0.0.1:"+Main.getPort()+";databaseName=ToolShop;integratedSecurity=true";
     String user = "sa";
     String pass = "password";
     static Connection con;
-    
+  
     public static void connect() {
     	
     	try {
@@ -282,7 +283,7 @@ public class Data {
 			
 			
 			PreparedStatement ps = con.prepareStatement("SET IDENTITY_INSERT Products ON;"
-					+ "INSERT INTO Orders (ProductID, CategoryID, ProductCode, ProductName, Description, ListPrice) VALUES(?,?,?,?,?,?)");
+					+ "INSERT INTO Products (ProductID, CategoryID, ProductCode, ProductName, Description, ListPrice) VALUES(?,?,?,?,?,?)");
 			//the one represents the first question mark '?' which is the CategoryID value in the table
 			//the Integer.toString(num+1) is assigning the id number
 			ps.setString(1, Integer.toString(num+1));
@@ -320,7 +321,7 @@ public class Data {
 			}
 			
 			
-			PreparedStatement ps = con.prepareStatement("SET IDENTITY_INSERT Products ON;"
+			PreparedStatement ps = con.prepareStatement("SET IDENTITY_INSERT Store ON;"
 					+ "INSERT INTO Store (StoreID, StoreAddress, NumberOfEmployees, Manager) VALUES(?,?,?,?)");
 			//the one represents the first question mark '?' which is the CategoryID value in the table
 			//the Integer.toString(num+1) is assigning the id number
